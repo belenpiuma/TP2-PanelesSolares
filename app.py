@@ -127,8 +127,8 @@ with col1:
 
 with col2:
     st.subheader("Diagnóstico")
-    st.metric("Estado detectado", NOMBRES[CLASES[clase]], f"{proba[clase]:.0%} de probabilidad",
-              delta_color="off")
+    st.metric("Estado detectado", NOMBRES[CLASES[clase]])
+    st.caption(f"Probabilidad de la clase: {proba[clase]:.0%}")
 
     if confianza < umbral:
         st.warning(f"🔎 **Derivar a revisión humana**: confianza {confianza:.0%} < umbral {umbral:.0%}.")
@@ -139,7 +139,17 @@ with col2:
                   "Técnico": "Enviar técnico especializado: posible daño."}
         a = ACCIONES[accion]
         (st.error if a == "Técnico" else st.success if a == "Nada" else st.info)(
-            f"{iconos[a]} **{a}**: {textos[a]} (confianza {confianza:.0%})")
+            f"{iconos[a]} **{a}**: {textos[a]}")
+        if accion != int(proba_accion.argmax()):
+            st.caption(
+                f"La acción más probable era **{ACCIONES[int(proba_accion.argmax())]}** "
+                f"({proba_accion.max():.0%}), pero se eligió **{a}** por **mínimo costo esperado**: "
+                f"con {proba_accion[accion]:.0%} de probabilidad, el riesgo de no actuar "
+                f"es más caro que el costo de la acción.")
+
+    st.markdown("**Probabilidad por acción**")
+    for k, nombre_accion in enumerate(ACCIONES):
+        st.progress(float(proba_accion[k]), text=f"{nombre_accion}: {proba_accion[k]:.1%}")
 
     st.markdown("**Probabilidad por clase**")
     orden = np.argsort(proba)[::-1]
