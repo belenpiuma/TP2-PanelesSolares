@@ -1,0 +1,53 @@
+{
+  "clases": [
+    "Bird-drop",
+    "Clean",
+    "Dusty",
+    "Electrical-damage",
+    "Physical-Damage",
+    "Snow-Covered"
+  ],
+  "nombres_es": {
+    "Bird-drop": "Excremento de aves",
+    "Clean": "Limpio",
+    "Dusty": "Polvo",
+    "Electrical-damage": "Daño eléctrico",
+    "Physical-Damage": "Daño físico",
+    "Snow-Covered": "Nieve"
+  },
+  "acciones": [
+    "Nada",
+    "Limpieza",
+    "Técnico"
+  ],
+  "clase_a_accion": {
+    "Clean": 0,
+    "Bird-drop": 1,
+    "Dusty": 1,
+    "Snow-Covered": 1,
+    "Electrical-damage": 2,
+    "Physical-Damage": 2
+  },
+  "matriz_costos": [
+    [
+      0,
+      5,
+      60
+    ],
+    [
+      15,
+      5,
+      60
+    ],
+    [
+      300,
+      305,
+      60
+    ]
+  ],
+  "umbral_confianza": 0.75,
+  "metricas_test": {
+    "accuracy": 0.788135593220339,
+    "kappa": 0.7400881057268722
+  }
+}
