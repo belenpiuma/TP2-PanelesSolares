@@ -12,7 +12,7 @@ Los parques solares tienen miles de paneles cuya eficiencia cae por suciedad (po
 
 - **Arquitectura:** EfficientNetB0 preentrenado en ImageNet + *fine-tuning* (Keras / TensorFlow).
 - **Clases:** Limpio, Polvo, Excremento de aves, Nieve, Daño eléctrico, Daño físico.
-- **Resultados en test:** accuracy 78,8% · F1 macro 0,79 · Kappa 0,74.
+- **Resultados en test:** accuracy 0,746 · F1 macro 0,747 · Kappa 0,687.
 - Ningún panel dañado fue clasificado como limpio en test.
 
 ## Lógica de decisión
