@@ -45,9 +45,9 @@
       60
     ]
   ],
-  "umbral_confianza": 0.75,
+  "umbral_confianza": 0.78,
   "metricas_test": {
-    "accuracy": 0.788135593220339,
-    "kappa": 0.7400881057268722
+    "accuracy": 0.7457627118644068,
+    "kappa": 0.6872238911468457
   }
 }
